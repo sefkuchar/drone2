@@ -84,8 +84,7 @@ webrtc_streamer(
     video_frame_callback=video_frame_callback
 )
 
-st.markdown("---")
-st.markdown("""
+st.markdown("---")st.markdown("""
 ### Status projektu: Proof of Concept
 Aktuálne zobrazená aplikácia je funkčný prototyp, ktorý overuje schopnosť neurónovej siete YOLOv8n v reálnom čase detegovať objekt a vypočítať jeho odchýlku od stredu záberu. Tento základný algoritmus tvorí nevyhnutný prvok pre vizuálnu servovú slučku.
 
@@ -111,7 +110,7 @@ Bakalárska práca nadväzuje na tento prototyp a zameriava sa na tri hlavné in
 
 1. **Optimalizácia spracovania videa:** Cieľom je implementovať techniky pre zníženie latencie a efektívne využitie hardvérových prostriedkov, aby systém bežal s čo najvyššou snímkovou frekvenciou aj na palubnom počítači drona.
 2. **Implementácia riadiacej slučky (PID regulácia):** Cieľom je navrhnúť systém, ktorý vypočítanú odchýlku premení na plynulé riadiace povely. Zameriame sa na stabilitu, aby bol pohyb kamery pri sledovaní cieľa plynulý a bez trhavých oscilácií.
-3. **Autonómna správa stavov:** Cieľom je vytvoriť logiku, ktorá definuje správanie drona v prípade straty cieľa. Systém bude schopný autonómne zahájiť vyhľadávací manéver, cieľ znovu lokalizovať a vrátić sa do módu sledovania.
+3. **Autonómna správa stavov:** Cieľom je vytvoriť logiku, ktorá definuje správanie drona v prípade straty cieľa. Systém bude schopný autonómne zahájiť vyhľadávací manéver, cieľ znovu lokalizovať a vrátiť sa do módu sledovania.
 
 ### Metodika dosiahnutia cieľov
 Pri realizácii budeme postupovať nasledovne:
@@ -122,3 +121,4 @@ Pri realizácii budeme postupovať nasledovne:
 
 Celkovým cieľom práce je transformovať tento vizuálny prototyp na ucelený autonómny systém, ktorý dokáže inteligentne a stabilne sledovať človeka v dynamických podmienkach.
 """)
+
