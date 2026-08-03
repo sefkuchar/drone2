@@ -1,4 +1,4 @@
-import streamlit as st
+8import streamlit as st
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
 import av
 import cv2
@@ -84,7 +84,8 @@ webrtc_streamer(
     video_frame_callback=video_frame_callback
 )
 
-st.markdown("---")st.markdown("""
+st.markdown("---")
+st.markdown("""
 ### Status projektu: Proof of Concept
 Aktuálne zobrazená aplikácia je funkčný prototyp, ktorý overuje schopnosť neurónovej siete YOLOv8n v reálnom čase detegovať objekt a vypočítať jeho odchýlku od stredu záberu. Tento základný algoritmus tvorí nevyhnutný prvok pre vizuálnu servovú slučku.
 
