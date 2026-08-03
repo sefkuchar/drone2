@@ -1,4 +1,4 @@
-8import streamlit as st
+import streamlit as st
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
 import av
 import cv2
