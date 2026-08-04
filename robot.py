@@ -11,8 +11,7 @@ from ultralytics import YOLO
 # ==============================================================================
 # KONFIGURÁCIA A UI STRÁNKY
 # ==============================================================================
-st.set_page_config(page_title="UAV Profi Tracking", layout="wide")
-st.title("UAV Autonómne Sledovacie Rozhranie")
+st.set_page_config(page_title="Proof of concept", layout="wide")
 st.markdown("---")
 
 VIDEO_PATH = "vtest.avi"
@@ -87,16 +86,15 @@ webrtc_streamer(
 st.markdown("---")
 st.markdown("""
 ### Status projektu: Proof of Concept
-Aktuálne zobrazená aplikácia je funkčný prototyp, ktorý overuje schopnosť neurónovej siete YOLOv8n v reálnom čase detegovať objekt a vypočítať jeho odchýlku od stredu záberu. Tento základný algoritmus tvorí nevyhnutný prvok pre vizuálnu servovú slučku.
+Aktuálne zobrazená aplikácia je funkčný prototyp, ktorý overuje schopnosť neurónovej siete YOLOv8n v reálnom čase detegovať objekt a vypočítať jeho odchýlku od stredu záberu.
 
 ### Logika systému
-1. Vstupný stream: Pomocou knižnice aiortc a WebRTC prijímame video v reálnom čase. Toto je kritické, pretože bežné metódy prenosu videa na webe majú vysoké oneskorenie.
+1. Vstupný stream: Pomocou knižnice aiortc a WebRTC prijímame video v reálnom čase.
 2. Spracovanie obrazu: Model YOLOv8n analyzuje každú snímku. Našou úlohou je v reálnom čase lokalizovať človeka a vrátiť súradnice ohraničujúceho rámčeka.
 3. Matematická analýza: Program vypočíta, ako ďaleko je cieľ od stredu záberu kamery.
 4. Vizualizácia: Všetky informácie vykresľujeme v reálnom čase do takzvaného HUD panelu, ktorý simuluje ovládacie rozhranie skutočného dronu.
 
 ### Vysvetlenie kľúčových veličín
-V kóde sledujeme metriky, ktoré určujú kvalitu a presnosť sledovania:
 
 * **Odchýlka ($e_x, e_y$):** Predstavuje vzdialenosť cieľa od stredu obrazu v pixeloch. Ak sú hodnoty nulové, cieľ sa nachádza presne na optickej osi kamery. Tieto hodnoty slúžia ako vstup pre PID regulátor na natočenie dronu.
 * **Vzdialenosť ($d$):** Ide o Euklidovskú vzdialenosť v dvojrozmernom priestore obrazu definovanú vzorcom: 
@@ -110,14 +108,13 @@ Vysoká istota zvyšuje skóre, zatiaľ čo veľká vzdialenosť od stredu skór
 Bakalárska práca nadväzuje na tento prototyp a zameriava sa na tri hlavné inžinierske piliere:
 
 1. **Optimalizácia spracovania videa:** Cieľom je implementovať techniky pre zníženie latencie a efektívne využitie hardvérových prostriedkov, aby systém bežal s čo najvyššou snímkovou frekvenciou aj na palubnom počítači drona.
-2. **Implementácia riadiacej slučky (PID regulácia):** Cieľom je navrhnúť systém, ktorý vypočítanú odchýlku premení na plynulé riadiace povely. Zameriame sa na stabilitu, aby bol pohyb kamery pri sledovaní cieľa plynulý a bez trhavých oscilácií.
+2. **Implementácia riadiacej slučky (PID regulácia):** Cieľom je navrhnúť systém, ktorý vypočítanú odchýlku premení na plynulé riadiace povely. Zameriame sa na stabilitu, aby bol pohyb kamery pri sledovaní cieľa plynulý a bez trhavých pohybov.
 3. **Autonómna správa stavov:** Cieľom je vytvoriť logiku, ktorá definuje správanie drona v prípade straty cieľa. Systém bude schopný autonómne zahájiť vyhľadávací manéver, cieľ znovu lokalizovať a vrátiť sa do módu sledovania.
 
 ### Metodika dosiahnutia cieľov
-Pri realizácii budeme postupovať nasledovne:
 
-* **Matematické modelovanie:** Zadefinujeme prenosovú funkciu, ktorá popíše vzťah medzi vizuálnou odchýlkou a potrebným náklonom dronu.
-* **Simulácia:** Overíme stabilitu riadiacej slučky v simulovanom prostredí, kde môžeme bezpečne ladiť parametre regulátora pred nasadením na reálny hardvér.
+* **Matematika:** Zadefinujeme prenosovú funkciu, ktorá popíše vzťah medzi vizuálnou odchýlkou a potrebným náklonom dronu.
+* **Simulácia:** Overíme stabilitu drona v simulovanom prostredí, kde môžeme bezpečne ladiť parametre regulátora pred nasadením na reálny hardvér.
 * **Hardvérová implementácia:** Systém nasadíme na palubný počítač, ktorý zabezpečí spracovanie obrazu a riadenie drona v reálnom čase.
 
 Celkovým cieľom práce je transformovať tento vizuálny prototyp na ucelený autonómny systém, ktorý dokáže inteligentne a stabilne sledovať človeka v dynamických podmienkach.
