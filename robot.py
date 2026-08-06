@@ -105,7 +105,7 @@ $$R = (conf \\cdot 2.5) - (d \\cdot 0.0015)$$
 Vysoká istota zvyšuje skóre, zatiaľ čo veľká vzdialenosť od stredu skóre znižuje, čím penalizujeme agenta za to, že cieľ uniká zo záberu.
 
 ### Cieľ a zameranie bakalárskej práce
-Bakalárska práca nadväzuje na tento prototyp a zameriava sa na tri hlavné inžinierske piliere:
+Bakalárska práca nadväzuje na tento prototyp.
 
 1. **Optimalizácia spracovania videa:** Cieľom je implementovať techniky pre zníženie latencie a efektívne využitie hardvérových prostriedkov, aby systém bežal s čo najvyššou snímkovou frekvenciou aj na palubnom počítači drona.
 2. **Implementácia riadiacej slučky (PID regulácia):** Cieľom je navrhnúť systém, ktorý vypočítanú odchýlku premení na plynulé riadiace povely. Zameriame sa na stabilitu, aby bol pohyb kamery pri sledovaní cieľa plynulý a bez trhavých pohybov.
